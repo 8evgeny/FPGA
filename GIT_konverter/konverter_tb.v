@@ -1,15 +1,24 @@
 module test_uprclk1;
 
-reg reset, clk, wr;
+reg reset, clk, wr, f0, c4;
 reg [7:0]wdata;
 wire [7:0] data_cnt;
 
 //устанавливаем экземпляр тестируемого модуля
-counter uprclk1_inst(reset, clk, wdata, wr, data_cnt);
+counter1 uprclk1_inst(f0, c4, reset, clk, wdata, wr, data_cnt);
 
 //моделируем сигнал тактовой частоты
 always
   #20 clk = ~clk;
+
+always  
+  #5 c4 = ~c4;
+
+always
+begin
+    #125 f0 = 0;
+    #5  f0 = 1'b1;
+end
 
 //от начала времени...
 
@@ -19,10 +28,11 @@ begin
   reset = 0;
   wdata = 8'h00;
   wr = 1'b0;
+  f0 = 1'b0;
+  c4 = 0;
 
 //через временной интервал "50" подаем сигнал сброса
   #50 reset = 1;
-
 //еще через время "4" снимаем сигнал сброса
 
   #4 reset = 0;
@@ -47,10 +57,10 @@ begin
     end
 end
 
-//заканчиваем симуляцию в момент времени "400"
+//заканчиваем симуляцию в момент времени "3000"
 initial
 begin
-  #400 $finish;
+  #3000 $finish;
 end
 
 //создаем файл VCD для последующего анализа сигналов
@@ -62,6 +72,6 @@ end
 
 //наблюдаем на некоторыми сигналами системы
 initial
-$monitor($stime,, reset,, clk,,, wdata,, wr,, data_cnt);
+$monitor($stime,, reset,, clk,,, wdata,, wr,, data_cnt,, f0,, c4);
 
 endmodule

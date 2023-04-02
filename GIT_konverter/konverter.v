@@ -1,4 +1,6 @@
-module counter (
+module counter1 (
+    input wire f0,
+    input wire c4,
     input wire reset,
     input wire clk,
     input wire [7:0]wdata,
