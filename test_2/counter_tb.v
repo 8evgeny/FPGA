@@ -9,7 +9,7 @@ counter counter_inst(reset, clk, wdata, wr, data_cnt);
 
 //моделируем сигнал тактовой частоты
 always
-  #10 clk = ~clk;
+  #20 clk = ~clk;
 
 //от начала времени...
 
