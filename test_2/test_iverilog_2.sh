@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "Начать компиляцию"
 iverilog -o counter counter.v counter_tb.v
 echo «Компиляция завершена»

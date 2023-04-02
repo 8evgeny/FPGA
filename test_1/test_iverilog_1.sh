@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "Начать компиляцию"
 iverilog -o wave led_demo.v led_demo_tb.v
 echo «Компиляция завершена»
