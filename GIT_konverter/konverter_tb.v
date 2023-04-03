@@ -3,10 +3,12 @@ module test_uprclk1;
 reg  f0, c4;
 
 //устанавливаем экземпляр тестируемого модуля
-counter2 uprclk1_inst(f0, c4, clk_en1, clk_en2, clk1, clk2);
+converter converter_inst(f0, c4, 
+  clk_en_tx_t, clk_en_rx_t, clk_en_tx_n, clk_en_rx_n, 
+  clk_tx_t, clk_rx_t, clk_tx_n, clk_rx_n);
 
 always  
-    #125 c4 = ~c4;
+    #122 c4 = ~c4;
 
 always
 begin
@@ -36,6 +38,8 @@ end
 
 //наблюдаем на некоторыми сигналами системы
 initial
-$monitor($stime,, f0,, c4,, clk_en1,, clk1 );
+$monitor($stime,, f0,, c4,, 
+  clk_en_tx_t,, clk_en_rx_t,, clk_en_tx_n,, clk_en_rx_n,, 
+  clk_tx_t,, clk_rx_t,, clk_tx_n,, clk_rx_n);
 
 endmodule
