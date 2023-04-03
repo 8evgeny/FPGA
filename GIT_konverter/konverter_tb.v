@@ -1,11 +1,9 @@
 module test_uprclk1;
 
-reg  f0, c4;
+reg  f0, c4, select;
 
 //устанавливаем экземпляр тестируемого модуля
-converter converter_inst(f0, c4, 
-  clk_en_tx_t, clk_en_rx_t, clk_en_tx_n, clk_en_rx_n, 
-  clk_tx_t, clk_rx_t, clk_tx_n, clk_rx_n);
+converter converter_inst(f0, c4, select, clk_en_tx, clk_en_rx, clk_tx, clk_rx,);
 
 always  
     #122 c4 = ~c4;
@@ -21,6 +19,7 @@ initial
 begin
   f0 = 1'b1;
   c4 = 1'b0;
+  select = 1'b0;
 end
 
 //заканчиваем симуляцию в момент времени "3000000"
@@ -38,8 +37,7 @@ end
 
 //наблюдаем на некоторыми сигналами системы
 initial
-$monitor($stime,, f0,, c4,, 
-  clk_en_tx_t,, clk_en_rx_t,, clk_en_tx_n,, clk_en_rx_n,, 
-  clk_tx_t,, clk_rx_t,, clk_tx_n,, clk_rx_n);
+$monitor($stime,, f0,, c4,, select,,
+  clk_en_tx,, clk_en_rx,, clk_tx,, clk_rx);
 
 endmodule
