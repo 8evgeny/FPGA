@@ -13,13 +13,14 @@ always @ (negedge f0)
       clk_en1 <= 1'b1;
       @ (negedge c4)
       begin
-         for (i=0; i<32; i=i+1) 
+         #0 clk1 <= 1'b1;
+         for (i=0; i<31; i=i+1) 
             begin
-               #10 clk1 <= 1'b1;
-               #10 clk1 <= 1'b0;
-
+               #244 clk1 <= 1'b0;
+               #244 clk1 <= 1'b1;
             end
-         clk_en1 <= 1'b0; 
+         #244 clk1 <= 1'b0;   
+         #122 clk_en1 <= 1'b0; 
       end
    end
 
