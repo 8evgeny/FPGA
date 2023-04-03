@@ -7,3 +7,4 @@ echo «Создать волновой файл»
 cp out.vcd out.lxt
 echo «Открыть файл волны»
 gtkwave out.lxt
+rm out.lxt out.vcd konverter

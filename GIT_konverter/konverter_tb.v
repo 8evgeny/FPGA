@@ -1,26 +1,12 @@
 module test_uprclk1;
 
-reg 
-// reset, clk, wr, 
-f0, c4;
-// reg [7:0]wdata;
-// wire [7:0] data_cnt;
+reg  f0, c4;
 
 //устанавливаем экземпляр тестируемого модуля
-counter2 uprclk1_inst(f0, c4, 
-                      // reset, clk, wdata, wr, data_cnt,
-                      clk_en1,
-                      clk_en2,
-                      clk1,
-                      clk2
-                      );
-
-//моделируем сигнал тактовой частоты
-// always
-//   #2000 clk = ~clk;
+counter2 uprclk1_inst(f0, c4, clk_en1, clk_en2, clk1, clk2);
 
 always  
-  #125 c4 = ~c4;
+    #125 c4 = ~c4;
 
 always
 begin
@@ -29,40 +15,10 @@ begin
 end
 
 //от начала времени...
-
 initial
 begin
-  // clk = 0;
-  // reset = 0;
-  // wdata = 8'h00;
-  // wr = 1'b0;
   f0 = 1'b1;
   c4 = 1'b1;
-
-//через временной интервал "50" подаем сигнал сброса
-  // #50 reset = 1;
-//еще через время "4" снимаем сигнал сброса
-
-  // #4 reset = 0;
-
-//пауза длительностью "50"
-  // #50;
-
-//ждем фронта тактовой частоты и сразу после нее подаем сигнал записи
-  // @(posedge clk)
-  // #0
-  //   begin
-  //     wdata = 8'h55;
-  //     wr = 1'b1;
-  //   end
-
-//по следующему фронту снимаем сигнал записи
-  // @(posedge clk)
-  // #0
-  //   begin
-  //     wdata = 8'h00;
-  //     wr = 1'b0;
-  //   end
 end
 
 //заканчиваем симуляцию в момент времени "1500000"
@@ -80,9 +36,6 @@ end
 
 //наблюдаем на некоторыми сигналами системы
 initial
-$monitor($stime,, 
-          // reset,, clk,,, wdata,, wr,, data_cnt,, 
-          f0,, c4,, clk_en1,, clk1
-          );
+$monitor($stime,, f0,, c4,, clk_en1,, clk1 );
 
 endmodule
