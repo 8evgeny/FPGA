@@ -5,7 +5,13 @@ reg [7:0]wdata;
 wire [7:0] data_cnt;
 
 //устанавливаем экземпляр тестируемого модуля
-counter1 uprclk1_inst(f0, c4, reset, clk, wdata, wr, data_cnt);
+counter2 uprclk1_inst(f0, c4, 
+                      reset, clk, wdata, wr, data_cnt,
+                      clk_en1,
+                      clk_en2,
+                      clk1,
+                      clk2
+                      );
 
 //моделируем сигнал тактовой частоты
 always
@@ -72,6 +78,6 @@ end
 
 //наблюдаем на некоторыми сигналами системы
 initial
-$monitor($stime,, reset,, clk,,, wdata,, wr,, data_cnt,, f0,, c4);
+$monitor($stime,, reset,, clk,,, wdata,, wr,, data_cnt,, f0,, c4,, clk_en1,, clk);
 
 endmodule
