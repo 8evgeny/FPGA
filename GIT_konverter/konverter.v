@@ -9,10 +9,6 @@ module converter (
 );
 integer i,j,k,l;
 
-if (select == 1'b1) //абонентское
-begin
-
-
 always @ (negedge f0)
    begin
       clk_en_tx <= 1'b1;
@@ -47,41 +43,37 @@ always @ (negedge f0)
       end
    end
 
-end else begin
+// always @ (negedge f0)
+//    begin
+//       clk_en_rx <= 1'b1;
+//       @ (negedge c4)
+//       begin
+//          #244 clk_rx <= 1'b1;
+//          for (k=0; k<31; k=k+1) 
+//             begin
+//                #244 clk_rx <= 1'b0;
+//                #244 clk_rx <= 1'b1;
+//             end
+//          #244 clk_rx <= 1'b0;   
+//          #122 clk_en_rx <= 1'b0; 
+//       end
+//    end
 
-
-always @ (negedge f0)
-   begin
-      clk_en_rx <= 1'b1;
-      @ (negedge c4)
-      begin
-         #244 clk_rx <= 1'b1;
-         for (k=0; k<31; k=k+1) 
-            begin
-               #244 clk_rx <= 1'b0;
-               #244 clk_rx <= 1'b1;
-            end
-         #244 clk_rx <= 1'b0;   
-         #122 clk_en_rx <= 1'b0; 
-      end
-   end
-
-always @ (negedge f0)
-   begin
-      clk_en_tx <= 1'b1;
-      @ (negedge c4)
-      begin
-         #244 clk_tx <= 1'b1;
-         for (l=0; l<30; l=l+1) 
-            begin
-               #244 clk_tx <= 1'b0;
-               #244 clk_tx <= 1'b1;
-            end
-         #244 clk_tx <= 1'b0;   
-         #122 clk_en_tx <= 1'b0; 
-         #122 clk_tx <= 1'b1; 
-         #244 clk_tx <= 1'b0;  
-      end
-   end 
-end
+// always @ (negedge f0)
+//    begin
+//       clk_en_tx <= 1'b1;
+//       @ (negedge c4)
+//       begin
+//          #244 clk_tx <= 1'b1;
+//          for (l=0; l<30; l=l+1) 
+//             begin
+//                #244 clk_tx <= 1'b0;
+//                #244 clk_tx <= 1'b1;
+//             end
+//          #244 clk_tx <= 1'b0;   
+//          #122 clk_en_tx <= 1'b0; 
+//          #122 clk_tx <= 1'b1; 
+//          #244 clk_tx <= 1'b0;  
+//       end
+//    end 
 endmodule
