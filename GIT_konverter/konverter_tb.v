@@ -1,4 +1,4 @@
-module test_uprclk1;
+module test_converter;
 
 reg  f0, c4, select;
 
@@ -35,7 +35,7 @@ end
 initial
 begin
   $dumpfile("out.vcd");
-  $dumpvars(0,test_uprclk1);
+  $dumpvars(0,test_converter);
 end
 
 //наблюдаем на некоторыми сигналами системы
