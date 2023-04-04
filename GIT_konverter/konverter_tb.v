@@ -8,10 +8,15 @@ converter converter_inst(f0, c4, select, clk_en_tx, clk_en_rx, clk_tx, clk_rx);
 always  
     #122 c4 = ~c4;
 
-always
+initial
 begin
-    #124756 f0 = 0;
+  while (1)
+  begin
+    @ (posedge c4)
+    f0 = 0;
     #244 f0 = 1'b1;
+    #124756 f0 = 1'b1;
+  end
 end
 
 //от начала времени...
