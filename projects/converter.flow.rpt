@@ -1,5 +1,5 @@
 Flow report for converter
-Wed Apr 05 16:27:41 2023
+Wed Apr 05 16:33:38 2023
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Wed Apr 05 16:27:41 2023    ;
+; Flow Status                        ; Successful - Wed Apr 05 16:33:38 2023    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; converter                                ;
 ; Top-level Entity Name              ; converter                                ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/05/2023 16:27:37 ;
+; Start date & time ; 04/05/2023 16:33:33 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; converter           ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+-------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                               ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52228802557.168070125700132         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52228802557.168070161251388         ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                  ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP             ; 0                                   ; --            ; --          ; --             ;
 ; MISC_FILE                          ; C:/altera/91/projects/converter.dpf ; --            ; --          ; --             ;
@@ -89,11 +89,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:00     ; 1.0                     ; 221 MB              ; 00:00:01                           ;
-; Fitter                  ; 00:00:01     ; 1.0                     ; 290 MB              ; 00:00:01                           ;
-; Assembler               ; 00:00:00     ; 1.0                     ; 210 MB              ; 00:00:00                           ;
+; Analysis & Synthesis    ; 00:00:01     ; 1.0                     ; 221 MB              ; 00:00:01                           ;
+; Fitter                  ; 00:00:01     ; 1.0                     ; 289 MB              ; 00:00:01                           ;
+; Assembler               ; 00:00:01     ; 1.0                     ; 210 MB              ; 00:00:01                           ;
 ; Classic Timing Analyzer ; 00:00:00     ; 1.0                     ; 173 MB              ; 00:00:00                           ;
-; Total                   ; 00:00:01     ; --                      ; --                  ; 00:00:02                           ;
+; Total                   ; 00:00:03     ; --                      ; --                  ; 00:00:03                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

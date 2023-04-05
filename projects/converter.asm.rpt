@@ -1,5 +1,5 @@
 Assembler report for converter
-Wed Apr 05 16:27:40 2023
+Wed Apr 05 16:33:37 2023
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/altera/91/projects/converter.sof
-  6. Assembler Device Options: C:/altera/91/projects/converter.pof
+  5. Assembler Device Options: Z:/FPGA/projects/converter.sof
+  6. Assembler Device Options: Z:/FPGA/projects/converter.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Apr 05 16:27:40 2023 ;
+; Assembler Status      ; Successful - Wed Apr 05 16:33:37 2023 ;
 ; Revision Name         ; converter                             ;
 ; Top-level Entity Name ; converter                             ;
 ; Family                ; Cyclone II                            ;
@@ -78,37 +78,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+-------------------------------------+
-; Assembler Generated Files           ;
-+-------------------------------------+
-; File Name                           ;
-+-------------------------------------+
-; C:/altera/91/projects/converter.sof ;
-; C:/altera/91/projects/converter.pof ;
-+-------------------------------------+
++--------------------------------+
+; Assembler Generated Files      ;
++--------------------------------+
+; File Name                      ;
++--------------------------------+
+; Z:/FPGA/projects/converter.sof ;
+; Z:/FPGA/projects/converter.pof ;
++--------------------------------+
 
 
-+---------------------------------------------------------------+
-; Assembler Device Options: C:/altera/91/projects/converter.sof ;
-+----------------+----------------------------------------------+
-; Option         ; Setting                                      ;
-+----------------+----------------------------------------------+
-; Device         ; EP2C5T144C8                                  ;
-; JTAG usercode  ; 0xFFFFFFFF                                   ;
-; Checksum       ; 0x00072F9F                                   ;
-+----------------+----------------------------------------------+
++----------------------------------------------------------+
+; Assembler Device Options: Z:/FPGA/projects/converter.sof ;
++----------------+-----------------------------------------+
+; Option         ; Setting                                 ;
++----------------+-----------------------------------------+
+; Device         ; EP2C5T144C8                             ;
+; JTAG usercode  ; 0xFFFFFFFF                              ;
+; Checksum       ; 0x00072F9F                              ;
++----------------+-----------------------------------------+
 
 
-+---------------------------------------------------------------+
-; Assembler Device Options: C:/altera/91/projects/converter.pof ;
-+--------------------+------------------------------------------+
-; Option             ; Setting                                  ;
-+--------------------+------------------------------------------+
-; Device             ; EPCS4                                    ;
-; JTAG usercode      ; 0x00000000                               ;
-; Checksum           ; 0x07533F67                               ;
-; Compression Ratio  ; 3                                        ;
-+--------------------+------------------------------------------+
++----------------------------------------------------------+
+; Assembler Device Options: Z:/FPGA/projects/converter.pof ;
++--------------------+-------------------------------------+
+; Option             ; Setting                             ;
++--------------------+-------------------------------------+
+; Device             ; EPCS4                               ;
+; JTAG usercode      ; 0x00000000                          ;
+; Checksum           ; 0x07533F67                          ;
+; Compression Ratio  ; 3                                   ;
++--------------------+-------------------------------------+
 
 
 +--------------------+
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed Apr 05 16:27:40 2023
+    Info: Processing started: Wed Apr 05 16:33:36 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off converter -c converter
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 210 megabytes
-    Info: Processing ended: Wed Apr 05 16:27:40 2023
-    Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Processing ended: Wed Apr 05 16:33:37 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 
