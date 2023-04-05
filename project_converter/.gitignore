@@ -16,3 +16,4 @@
 *.map.summary
 *.tan.rpt
 db/
+incremental_db/
