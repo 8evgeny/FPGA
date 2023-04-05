@@ -24,3 +24,11 @@
 /prev_cmp_converter.fit.qmsg
 /prev_cmp_converter.map.qmsg
 /prev_cmp_converter.tan.qmsg
+*.asm.qmsg
+*.asm.rdb
+*.cmp.cdb
+*.cmp.hdb
+*.cmp.rdb
+*.fit.qmsg
+*.map.bpm
+*.map.cdb

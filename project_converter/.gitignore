@@ -7,3 +7,11 @@
 /converter.map.summary
 /converter.qsf
 /converter.tan.rpt
+*.asm.rpt
+*.done
+*.fit.rpt
+*.fit.summary
+*.flow.rpt
+*.map.rpt
+*.map.summary
+*.tan.rpt
