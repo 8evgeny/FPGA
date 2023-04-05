@@ -7,7 +7,7 @@ module converter (
     output reg clk_tx,
     output reg clk_rx
 );
-integer i,j,k,l ;
+integer i,j,k,l;
 
 always @ (negedge f0)
    begin
