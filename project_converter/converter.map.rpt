@@ -1,5 +1,5 @@
 Analysis & Synthesis report for converter
-Wed Apr 05 16:33:33 2023
+Wed Apr 05 16:41:13 2023
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 05 16:33:33 2023    ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 05 16:41:13 2023    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; converter                                ;
 ; Top-level Entity Name              ; converter                                ;
@@ -154,13 +154,13 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                   ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path               ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+
-; GIT_konverter/konverter.v        ; yes             ; User Verilog HDL File  ; Z:/FPGA/projects/GIT_konverter/konverter.v ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                        ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+
+; GIT_converter/converter.v        ; yes             ; User Verilog HDL File  ; Z:/FPGA/project_converter/GIT_converter/converter.v ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -231,10 +231,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed Apr 05 16:33:32 2023
+    Info: Processing started: Wed Apr 05 16:41:12 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off converter -c converter
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info: Found 1 design units, including 1 entities, in source file git_konverter/konverter.v
+Info: Found 1 design units, including 1 entities, in source file git_converter/converter.v
     Info: Found entity 1: converter
 Info: Elaborating entity "converter" for the top level hierarchy
 Warning: Output pins are stuck at VCC or GND
@@ -251,7 +251,7 @@ Info: Implemented 7 device resources after synthesis - the final resource count 
     Info: Implemented 4 output pins
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 9 warnings
     Info: Peak virtual memory: 223 megabytes
-    Info: Processing ended: Wed Apr 05 16:33:33 2023
+    Info: Processing ended: Wed Apr 05 16:41:13 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

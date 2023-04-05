@@ -30,7 +30,7 @@ ON
 }
 # case_sensitive
 # source_file
-git_konverter|konverter.v
+git_converter|converter.v
 a4116f65041dc8f514f1b77d2a63e98
 8
 # internal_option {

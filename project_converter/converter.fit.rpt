@@ -1,5 +1,5 @@
 Fitter report for converter
-Wed Apr 05 16:33:35 2023
+Wed Apr 05 16:41:15 2023
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -53,7 +53,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Wed Apr 05 16:33:35 2023    ;
+; Fitter Status                      ; Successful - Wed Apr 05 16:41:15 2023    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; converter                                ;
 ; Top-level Entity Name              ; converter                                ;
@@ -178,7 +178,7 @@ applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in Z:/FPGA/projects/converter.pin.
+The pin-out file can be found in Z:/FPGA/project_converter/converter.pin.
 
 
 +-------------------------------------------------------------------+
@@ -537,7 +537,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed Apr 05 16:33:34 2023
+    Info: Processing started: Wed Apr 05 16:41:14 2023
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off converter -c converter
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Selected device EP2C5T144C8 for design "converter"
@@ -574,7 +574,7 @@ Info: I/O bank details before I/O pin placement
         Info: I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  23 pins available
         Info: I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  22 pins available
         Info: I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  24 pins available
-Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -595,10 +595,10 @@ Warning: Found 4 output pins without output pin load capacitance assignment
     Info: Pin "clk_rx" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info: Generated suppressed messages file Z:/FPGA/projects/converter.fit.smsg
+Info: Generated suppressed messages file Z:/FPGA/project_converter/converter.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 289 megabytes
-    Info: Processing ended: Wed Apr 05 16:33:35 2023
+    Info: Processing ended: Wed Apr 05 16:41:15 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -606,6 +606,6 @@ Info: Quartus II Fitter was successful. 0 errors, 3 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in Z:/FPGA/projects/converter.fit.smsg.
+The suppressed messages can be found in Z:/FPGA/project_converter/converter.fit.smsg.
 
 
