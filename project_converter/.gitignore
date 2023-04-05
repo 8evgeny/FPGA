@@ -17,3 +17,8 @@
 *.tan.rpt
 db/
 incremental_db/
+*.sof
+*.pof
+*.qpf
+*.pin
+*.fit.smsg
