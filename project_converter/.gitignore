@@ -23,3 +23,5 @@ incremental_db/
 *.pin
 *.fit.smsg
 *.qws
+*.dpf
+*.tan.summary

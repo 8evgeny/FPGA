@@ -13,6 +13,12 @@ module converter (
    );
 integer i,j,k,l;
 
+always @ (c4) 
+begin
+   data_to_dt = c4;
+end
+
+
 // always @ (negedge f0)
 //    begin
 //       clk_en_tx <= 1'b1;
