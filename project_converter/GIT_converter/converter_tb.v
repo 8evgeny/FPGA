@@ -1,9 +1,28 @@
 module test_converter;
 
-reg  f0, c4, select;
+reg f0,
+    c4,
+    select,
+    data_from_dt,
+    data_from_stm,
+    clk_from_stm,
+    reset_out_rg,
+    reset_in_rg;
 
 //instance
-converter converter_inst(f0, c4, select, clk_en_tx, clk_en_rx, clk_tx, clk_rx);
+converter converter_inst(
+    f0,
+    c4,
+    select,
+    data_from_dt,
+    data_from_stm,
+    clk_from_stm,
+    reset_out_rg,
+    reset_in_rg,
+    data_to_dt,
+    data_to_stm,
+    cpu_int
+  );
 
 always  
     #122 c4 = ~c4;
@@ -25,6 +44,11 @@ begin
   f0 = 1'b1;
   c4 = 1'b0;
   select = 1'b0;
+  data_from_dt = 1'b0;
+  data_from_stm = 1'b0;
+  clk_from_stm = 1'b0;
+  reset_out_rg = 1'b0;
+  reset_in_rg = 1'b0;
 
   #1500000
   select = 1'b1;
@@ -45,7 +69,19 @@ end
 
 //check signals
 initial
-$monitor($stime,, f0,, c4,, select,,
-  clk_en_tx,, clk_en_rx,, clk_tx,, clk_rx);
+$monitor(
+  $stime,, 
+    f0,,
+    c4,,
+    select,,
+    data_from_dt,,
+    data_from_stm,,
+    clk_from_stm,,
+    reset_out_rg,,
+    reset_in_rg,,
+    data_to_dt,,
+    data_to_stm,,
+    cpu_int
+  );
 
 endmodule
