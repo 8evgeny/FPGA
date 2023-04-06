@@ -2,7 +2,7 @@ module test_converter;
 
 reg  f0, c4, select;
 
-//устанавливаем экземпляр тестируемого модуля
+//instance
 converter converter_inst(f0, c4, select, clk_en_tx, clk_en_rx, clk_tx, clk_rx);
 
 always  
@@ -19,7 +19,7 @@ begin
   end
 end
 
-//от начала времени...
+//from begin time...
 initial
 begin
   f0 = 1'b1;
@@ -30,20 +30,20 @@ begin
   select = 1'b1;
 end
 
-//заканчиваем симуляцию в момент времени "3000000"
+//end simulation in time "3000000"
 initial
 begin
   #3000000 $finish;
 end
 
-//создаем файл VCD для последующего анализа сигналов
+//creating file VCD for furure analise signals
 initial
 begin
   $dumpfile("out.vcd");
   $dumpvars(0,test_converter);
 end
 
-//наблюдаем на некоторыми сигналами системы
+//check signals
 initial
 $monitor($stime,, f0,, c4,, select,,
   clk_en_tx,, clk_en_rx,, clk_tx,, clk_rx);
