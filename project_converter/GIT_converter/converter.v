@@ -16,25 +16,31 @@ module converter (
    );
 // integer i,j,k,l;
 
-    // reg [32:0] counter = 0;
-    
-   //  always @(posedge clk50)
-   // if(counter == 24)
-   //  begin
-   //      counter <= (counter == 24) ? 0 : counter + 1;
-   //      clk2 <= (counter == 24) ? 1 : 0;
-   //  end
-
-    always @(clk50)
-      begin
-      clk2 = clk50;
-      end
-
-
 always @ (c4) 
    begin
    data_to_dt = c4; 
    end //always
+
+   reg [19:0] count_20 = 0;
+
+always @(posedge clk50) begin
+   count_20 <= count_20 + 1;
+   if(count_20 == 1024)
+   begin
+      count_20<=0;
+      clk2 <= !clk2;
+   end
+end
+
+
+
+// always @(clk50)
+//    begin
+//    clk2 = clk50;
+//    end
+
+
+
 
 // always @ (negedge f0)
 //    begin
