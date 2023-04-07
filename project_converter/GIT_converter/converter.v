@@ -15,7 +15,7 @@ module converter (
    output reg cpu_int
 
    );
-reg [5:0] count_6 = 0;
+reg [9:0] count_10 = 0;
 //    reg [19:0] count_20 = 0;
 
 // always @(posedge clk50) begin
@@ -65,13 +65,12 @@ always @(clk50)
    always @(posedge c4)
 
 begin
-// test_120 <= !test_120;
-   count_6 <= count_6 + 1;
-   if(count_6 == 3) test_120 <= 1;
-   if(count_6 == 4) test_120 <= 0;
-   if (count_6 == 24) count_6 <= 0;
-
-
+   count_10 <= count_10 + 1;
+   if (f0 == 0) count_10 <= 0;
+   test_120 <= 0;
+   if(count_10 == 0) test_120 <= 1;
+   if(count_10 == 2) test_120 <= 1;
+   if(count_10 == 4) test_120 <= 1;
 end
 
 
