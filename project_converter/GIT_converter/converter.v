@@ -14,12 +14,6 @@ module converter (
    output reg cpu_int
 
    );
-// integer i,j,k,l;
-
-always @ (c4) 
-   begin
-   data_to_dt = c4; 
-   end //always
 
 //    reg [19:0] count_20 = 0;
 
@@ -35,43 +29,22 @@ always @ (c4)
 //    end
 // end
 
-
+always @ (c4) 
+   begin
+   data_to_dt = c4; 
+   end //always
 
 always @(clk50)
    begin
    clk2 = clk50;
    end
 
+always @(negedge clk_from_stm)
+   begin
+   data_to_stm <= data_from_stm;
+   end
 
 
-
-// always @ (negedge f0)
-//    begin
-//       clk_en_tx <= 1'b1;
-//          #122 clk_tx <= 1'b1;
-//          for (i=0; i<30; i=i+1) 
-//             begin
-//                #244 clk_tx <= 1'b0;
-//                #244 clk_tx <= 1'b1;
-//             end
-//          #244 clk_tx <= 1'b0;   
-//          #122 clk_en_tx <= 1'b0; 
-//          #122 clk_tx <= 1'b1; 
-//          #244 clk_tx <= 1'b0;  
-//      end
-
-// always @ (negedge f0)
-//    begin
-//       clk_en_rx <= 1'b1;
-//          #488 clk_rx <= 1'b1;
-//          for (j=0; j<31; j=j+1) 
-//             begin
-//                #244 clk_rx <= 1'b0;
-//                #244 clk_rx <= 1'b1;
-//             end
-//          #244 clk_rx <= 1'b0;   
-//          #122 clk_en_rx <= 1'b0; 
-//    end
 
 endmodule
 
