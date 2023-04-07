@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module converter (
    input wire f0,
    input wire c4,
@@ -16,6 +17,8 @@ module converter (
 
    );
 reg [9:0] count_10 = 0;
+reg [4:0] count_5 = 0;
+
 //    reg [19:0] count_20 = 0;
 
 // always @(posedge clk50) begin
@@ -38,6 +41,7 @@ reg [9:0] count_10 = 0;
 always @(clk50)
    begin
    clk2 = clk50;
+   // count_5 <= count_5 + 1;
    end
 
    integer i;
@@ -57,22 +61,35 @@ always @(clk50)
    data_to_stm <= reg_in[383];
    end
 
-   // always @(posedge c4)
-   // begin
-   // test_120 <= f0;
-   // end
-
    always @(negedge c4)
+   begin
+   count_5 <= 0;
+   end
+
+   always @(posedge c4)
+
    if (f0 == 0) begin count_10 <= 0;
    end else
    begin
-   
+
    test_120 <= 0;
-   if(count_10 == 0) test_120 <= 1;
-   if(count_10 == 2) test_120 <= 1;
-   if(count_10 == 4) test_120 <= 1;
-   count_10 <= count_10 + 1;
+
+   if(count_10 == 0) 
+   begin
+   test_120 <= 1;
    end
+   if(count_10 == 24) 
+   begin
+   test_120 <= 1;
+   end
+   if(count_10 == 48) 
+   begin
+   test_120 <= 1;
+   end
+   count_10 <= count_10 + 1;
+
+   end
+
 
 
 
