@@ -26,6 +26,9 @@ always @ (c4)
 always @(posedge clk50) begin
    count_20 <= count_20 + 1;
    if(count_20 == 1024)
+   // 2 - 25 000 000
+   // 4 - 12 500 000
+
    begin
       count_20<=0;
       clk2 <= !clk2;
