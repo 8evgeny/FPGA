@@ -62,16 +62,17 @@ always @(clk50)
    // test_120 <= f0;
    // end
 
-   always @(posedge c4)
-
-begin
-   count_10 <= count_10 + 1;
-   if (f0 == 0) count_10 <= 0;
+   always @(negedge c4)
+   if (f0 == 0) begin count_10 <= 0;
+   end else
+   begin
+   
    test_120 <= 0;
    if(count_10 == 0) test_120 <= 1;
    if(count_10 == 2) test_120 <= 1;
    if(count_10 == 4) test_120 <= 1;
-end
+   count_10 <= count_10 + 1;
+   end
 
 
 
