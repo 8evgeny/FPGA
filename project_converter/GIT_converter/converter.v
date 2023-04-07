@@ -62,31 +62,19 @@ always @(clk50)
    // test_120 <= f0;
    // end
 
-   always @(c4)
+   always @(posedge c4)
 
 begin
+// test_120 <= !test_120;
    count_6 <= count_6 + 1;
-   if (j == 32) j = 0;
-   if (f0 == 0) 
-      begin 
-      if(count_6 == 24) count_6 <= 0;
-      j = 1;
-      end
-   if (f0 != 0) 
-      begin 
-      j = j+1 ; 
-      end
+   if(count_6 == 3) test_120 <= 1;
+   if(count_6 == 4) test_120 <= 0;
+   if (count_6 == 24) count_6 <= 0;
+
+
 end
 
-   // always @(j)
-   // begin
-   // test_120 <= ~test_120;
-   //    // if (j == 3) begin test_120 <= 1;
-   //    // end
-   //    // else begin
-   //    // test_120 <= 0;
-   //    // end
-   // end
+
 
 endmodule
 
