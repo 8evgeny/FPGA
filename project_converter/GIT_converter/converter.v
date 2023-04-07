@@ -9,12 +9,13 @@ module converter (
    input wire reset_in_rg,
    input clk50,
    output reg clk2,
+   output reg test_120,
    output reg data_to_dt,
    output reg data_to_stm,
    output reg cpu_int
 
    );
-
+reg [5:0] count_6 = 0;
 //    reg [19:0] count_20 = 0;
 
 // always @(posedge clk50) begin
@@ -40,6 +41,7 @@ always @(clk50)
    end
 
    integer i;
+   integer j;
    reg [383:0] reg_in = 0;
    always @(negedge clk_from_stm)
    begin
@@ -54,6 +56,38 @@ always @(clk50)
    begin
    data_to_stm <= reg_in[383];
    end
+
+   // always @(posedge c4)
+   // begin
+   // test_120 <= f0;
+   // end
+
+   always @(c4)
+
+begin
+   count_6 <= count_6 + 1;
+   if (j == 32) j = 0;
+   if (f0 == 0) 
+      begin 
+      if(count_6 == 24) count_6 <= 0;
+      j = 1;
+      end
+   if (f0 != 0) 
+      begin 
+      j = j+1 ; 
+      end
+end
+
+   // always @(j)
+   // begin
+   // test_120 <= ~test_120;
+   //    // if (j == 3) begin test_120 <= 1;
+   //    // end
+   //    // else begin
+   //    // test_120 <= 0;
+   //    // end
+   // end
+
 endmodule
 
 
