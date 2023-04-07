@@ -21,26 +21,26 @@ always @ (c4)
    data_to_dt = c4; 
    end //always
 
-   reg [19:0] count_20 = 0;
+//    reg [19:0] count_20 = 0;
 
-always @(posedge clk50) begin
-   count_20 <= count_20 + 1;
-   if(count_20 == 1024)
-   // 2 - 25 000 000
-   // 4 - 12 500 000
+// always @(posedge clk50) begin
+//    count_20 <= count_20 + 1;
+//    if(count_20 == 1024)
+//    // 2 - 25 000 000
+//    // 4 - 12 500 000
 
-   begin
-      count_20<=0;
-      clk2 <= !clk2;
-   end
-end
-
-
-
-// always @(clk50)
 //    begin
-//    clk2 = clk50;
+//       count_20<=0;
+//       clk2 <= !clk2;
 //    end
+// end
+
+
+
+always @(clk50)
+   begin
+   clk2 = clk50;
+   end
 
 
 
