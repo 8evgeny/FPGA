@@ -39,13 +39,17 @@ always @(clk50)
    clk2 = clk50;
    end
 
+   integer i;
+   reg [383:0] reg_in = 0;
 always @(negedge clk_from_stm)
    begin
-   data_to_stm <= data_from_stm;
-   end
+   data_to_stm <= reg_in[383];
+      for (i = 383; i>0; i = i - 1) begin
+         reg_in[i] <= reg_in[i-1];
+      end //for
+      reg_in[0] <= data_from_stm;
 
-
-
+      end
 endmodule
 
 
