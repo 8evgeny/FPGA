@@ -29,10 +29,10 @@ module converter (
 //    end
 // end
 
-always @ (c4) 
-   begin
-   data_to_dt = c4; 
-   end //always
+// always @ (c4) 
+//    begin
+//    data_to_dt = c4; 
+//    end //always
 
 always @(clk50)
    begin
@@ -41,15 +41,19 @@ always @(clk50)
 
    integer i;
    reg [383:0] reg_in = 0;
-always @(negedge clk_from_stm)
+   always @(negedge clk_from_stm)
    begin
-   data_to_stm <= reg_in[383];
+   
       for (i = 383; i>0; i = i - 1) begin
          reg_in[i] <= reg_in[i-1];
       end //for
       reg_in[0] <= data_from_stm;
+   end
 
-      end
+   always @(posedge clk_from_stm)
+   begin
+   data_to_stm <= reg_in[383];
+   end
 endmodule
 
 
