@@ -16,8 +16,8 @@ module converter (
    output reg cpu_int
 
    );
-reg [9:0] count_10 = 0;
-reg [4:0] count_5 = 0;
+reg [9:0] count_pos = 0;
+reg [9:0] count_neg = 0;
 
 //    reg [19:0] count_20 = 0;
 
@@ -41,7 +41,6 @@ reg [4:0] count_5 = 0;
 always @(clk50)
    begin
    clk2 = clk50;
-   // count_5 <= count_5 + 1;
    end
 
    integer i;
@@ -66,14 +65,15 @@ always @(clk50)
 
    always @(negedge c4)
    begin
-   count_5 <= 0;
+   count_neg <= count_neg + 1;
    end
 
    always @(posedge c4)
 
    if (f0 == 0) 
    begin 
-   count_10 <= 0;
+   count_pos <= 0;
+   count_neg <= 0;
    b1_1 <= 0;
    b1_2 <= 0;
    b1_3 <= 0;
@@ -95,26 +95,26 @@ always @(clk50)
 
    test_120 <= 0;
 
-   if(count_10 == 0 | count_10 == 1) b1_1 <= 1; 
-   if(count_10 == 2 | count_10 == 3) b1_2 <= 1;
-   if(count_10 == 4 | count_10 == 5) b1_3 <= 1;
-   if(count_10 == 6 | count_10 == 7) b1_4 <= 1; 
-   if(count_10 == 8 | count_10 == 9) b1_5 <= 1;
-   if(count_10 == 10 | count_10 == 11) b1_6 <= 1;
-   if(count_10 == 12 | count_10 == 13) b1_7 <= 1;
-   if(count_10 == 14 | count_10 == 15) b1_8 <= 1;
-   if(count_10 == 16 | count_10 == 17) b2_1 <= 1; 
-   if(count_10 == 18 | count_10 == 19) b2_2 <= 1;
-   if(count_10 == 20 | count_10 == 21) b2_3 <= 1;
-   if(count_10 == 22 | count_10 == 23) b2_4 <= 1; 
-   if(count_10 == 24 | count_10 == 25) b2_5 <= 1;
-   if(count_10 == 26 | count_10 == 27) b2_6 <= 1;
-   if(count_10 == 28 | count_10 == 29) b2_7 <= 1;
-   if(count_10 == 30 | count_10 == 31) b2_8 <= 1;
+   if(count_pos == 0 | count_pos == 1) b1_1 <= 1; 
+   if(count_pos == 2 | count_pos == 3) b1_2 <= 1;
+   if(count_pos == 4 | count_pos == 5) b1_3 <= 1;
+   if(count_pos == 6 | count_pos == 7) b1_4 <= 1; 
+   if(count_pos == 8 | count_pos == 9) b1_5 <= 1;
+   if(count_pos == 10 | count_pos == 11) b1_6 <= 1;
+   if(count_pos == 12 | count_pos == 13) b1_7 <= 1;
+   if(count_pos == 14 | count_pos == 15) b1_8 <= 1;
+   if(count_pos == 16 | count_pos == 17) b2_1 <= 1; 
+   if(count_pos == 18 | count_pos == 19) b2_2 <= 1;
+   if(count_pos == 20 | count_pos == 21) b2_3 <= 1;
+   if(count_pos == 22 | count_pos == 23) b2_4 <= 1; 
+   if(count_pos == 24 | count_pos == 25) b2_5 <= 1;
+   if(count_pos == 26 | count_pos == 27) b2_6 <= 1;
+   if(count_pos == 28 | count_pos == 29) b2_7 <= 1;
+   if(count_pos == 30 | count_pos == 31) b2_8 <= 1;
 
    test_120 <= b2_2;
 
-   count_10 <= count_10 + 1;
+   count_pos <= count_pos + 1;
    end
 
 
