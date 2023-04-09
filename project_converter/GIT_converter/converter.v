@@ -52,36 +52,62 @@ reg [5:0] data = 0;
    end
 
 
-   always @(negedge c4)
-   if (f0 == 0) begin 
-      counter <= 0;
-   end else
-   begin
-      counter <= counter + 1;
-      case (counter)
-         0: data <= 0;
-         2: data <= 2;
-         4: data <= 4;
-         // default:  data <= 0;
-      endcase
-      // test_120 <=data[0];
-   end
-
-   always @(posedge c4)
-   begin
-      counter <= counter + 1;
-      case (counter)
-         1: data <= 1;
-         3: data <= 3;
-         5: data <= 5;
-         // default:  data <= 0;
-      endcase
-   end
-
-   // always @(data[0])
+   // always @(negedge c4)
+   // if (f0 == 0) begin 
+   //    counter <= 0;
+   // end else
    // begin
-   //    test_120 <=data[0];
+   //    counter <= counter + 1;
+   //    case (counter)
+   //       0: data <= 0;
+   //       2: data <= 2;
+   //       4: data <= 4;
+   //       // default:  data <= 0;
+   //    endcase
+   //    // test_120 <=data[0];
    // end
+
+   // always @(posedge c4)
+   //    begin
+   //       counter <= counter + 1;
+   //       case (counter)
+   //          1: data <= 1;
+   //          3: data <= 3;
+   //          5: data <= 5;
+   //          // default:  data <= 0;
+   //       endcase
+   //    end
+
+   always @(c4)
+      if (f0 == 0) begin 
+      counter <= 0;
+      end else
+      begin
+         counter <= counter + 1;
+         case (counter)
+            1: test_120 <= 1;
+            2: test_120 <= 0;
+            3: test_120 <= 1;
+            4: test_120 <= 0;
+            5: test_120 <= 1;
+            6: test_120 <= 0;
+            7: test_120 <= 1;
+            8: test_120 <= 0;
+            9: test_120 <= 1;
+            10: test_120 <= 0;
+            11: test_120 <= 1;
+            12: test_120 <= 0;
+            13: test_120 <= 1;
+            14: test_120 <= 0;
+            15: test_120 <= 1;
+            16: test_120 <= 0;
+            17: test_120 <= 1;
+            18: test_120 <= 0;
+            19: test_120 <= 1;
+            20: test_120 <= 0;
+            default:  data <= 0;
+         endcase
+      end
 
 
 endmodule
