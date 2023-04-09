@@ -17,6 +17,7 @@ module converter (
 
    );
 reg [9:0] counter = 0;
+reg [5:0] data = 0;
 
 //    reg [19:0] count_20 = 0;
 // always @(posedge clk50) begin
@@ -58,25 +59,29 @@ reg [9:0] counter = 0;
    begin
       counter <= counter + 1;
       case (counter)
-         0: test_120 <= 0;
-         2: test_120 <= 0;
-         4: test_120 <= 0;
-         default:  test_120 <= 0;
+         0: data <= 0;
+         2: data <= 2;
+         4: data <= 4;
+         // default:  data <= 0;
       endcase
+      // test_120 <=data[0];
    end
 
    always @(posedge c4)
    begin
       counter <= counter + 1;
       case (counter)
-         1: clk2 <= 0;
-         3: clk2 <= 0;
-         5: clk2 <= 0;
-         default:  clk2 <= 0;
+         1: data <= 1;
+         3: data <= 3;
+         5: data <= 5;
+         // default:  data <= 0;
       endcase
    end
 
-
+   // always @(data[0])
+   // begin
+   //    test_120 <=data[0];
+   // end
 
 
 endmodule
