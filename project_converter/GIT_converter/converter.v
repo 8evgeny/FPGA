@@ -52,20 +52,53 @@ reg [5:0] data = 0;
    end
 
 
-   // always @(negedge c4)
-   // if (f0 == 0) begin 
-   //    counter <= 0;
-   // end else
-   // begin
-   //    counter <= counter + 1;
-   //    case (counter)
-   //       0: data <= 0;
-   //       2: data <= 2;
-   //       4: data <= 4;
-   //       // default:  data <= 0;
-   //    endcase
-   //    // test_120 <=data[0];
-   // end
+   always @(posedge c4)
+   if (f0 == 0) begin 
+      counter <= 0;
+   end else
+   begin
+      
+      case (counter)
+         0: test_120 <= 1;
+         1: test_120 <= 0;
+         2: test_120 <= 1;
+         3: test_120 <= 0;
+         4: test_120 <= 1;
+         5: test_120 <= 0;
+         6: test_120 <= 1;
+         7: test_120 <= 0;
+         8: test_120 <= 1;
+         9: test_120 <= 0;
+         10: test_120 <= 1;
+         11: test_120 <= 0;
+         12: test_120 <= 1;
+         13: test_120 <= 0;
+         14: test_120 <= 1;
+         15: test_120 <= 0;
+         16: test_120 <= 1;
+         17: test_120 <= 0;
+         18: test_120 <= 1;
+         19: test_120 <= 0;
+         20: test_120 <= 1;
+         21: test_120 <= 0;
+         22: test_120 <= 1;
+         23: test_120 <= 0;
+         24: test_120 <= 1;
+         25: test_120 <= 0;
+         26: test_120 <= 1;
+         27: test_120 <= 0;
+         28: test_120 <= 1;
+         29: test_120 <= 0;
+         30: test_120 <= 1;
+         31: test_120 <= 0;
+         // 511: begin
+         // test_120 <= 1;
+         // counter <= 0;
+         // end
+         default:  test_120 <= 0;
+      endcase
+      counter <= counter + 1;
+   end
 
    // always @(posedge c4)
    //    begin
@@ -78,36 +111,36 @@ reg [5:0] data = 0;
    //       endcase
    //    end
 
-   always @(c4)
-      if (f0 == 0) begin 
-      counter <= 0;
-      end else
-      begin
-         counter <= counter + 1;
-         case (counter)
-            1: test_120 <= 1;
-            2: test_120 <= 0;
-            3: test_120 <= 1;
-            4: test_120 <= 0;
-            5: test_120 <= 1;
-            6: test_120 <= 0;
-            7: test_120 <= 1;
-            8: test_120 <= 0;
-            9: test_120 <= 1;
-            10: test_120 <= 0;
-            11: test_120 <= 1;
-            12: test_120 <= 0;
-            13: test_120 <= 1;
-            14: test_120 <= 0;
-            15: test_120 <= 1;
-            16: test_120 <= 0;
-            17: test_120 <= 1;
-            18: test_120 <= 0;
-            19: test_120 <= 1;
-            20: test_120 <= 0;
-            default:  data <= 0;
-         endcase
-      end
+   // always @(c4)
+   //    if (f0 == 0) begin 
+   //    counter <= 0;
+   //    end else
+   //    begin
+   //       counter <= counter + 1;
+   //       case (counter)
+   //          1: test_120 <= 1;
+   //          2: test_120 <= 0;
+   //          3: test_120 <= 1;
+   //          4: test_120 <= 0;
+   //          5: test_120 <= 1;
+   //          6: test_120 <= 0;
+   //          7: test_120 <= 1;
+   //          8: test_120 <= 0;
+   //          9: test_120 <= 1;
+   //          10: test_120 <= 0;
+   //          11: test_120 <= 1;
+   //          12: test_120 <= 0;
+   //          13: test_120 <= 1;
+   //          14: test_120 <= 0;
+   //          15: test_120 <= 1;
+   //          16: test_120 <= 0;
+   //          17: test_120 <= 1;
+   //          18: test_120 <= 0;
+   //          19: test_120 <= 1;
+   //          20: test_120 <= 0;
+   //          default:  data <= 0;
+   //       endcase
+   //    end
 
 
 endmodule
