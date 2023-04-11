@@ -39,28 +39,34 @@ always @(clk50)
 
    integer i = 0;
    reg [(num_byte_in_buffer * 8 - 1):0] reg_in = 0;
-   reg [(num_byte_in_buffer * 8 - 1):0] reg_in2 = 0;
+   reg [(num_byte_in_buffer * 8 - 1):0] reg_out = 0;
 
    always @(negedge clk_from_stm)
    begin
-      // reg_in2 <= reg_in2 << 1;
-      // reg_in2[0] <= data_from_stm;
+   reg_out[(i)] <= data_from_stm;
    end
 
    always @(posedge clk_from_stm)
    begin
-
    data_to_stm <= reg_in[(i)];
    i = i + 1;
    if ( i == num_byte_in_buffer * 8 ) i = 0;
 
    end
 
+   always @(negedge c4)
+   begin
+      case (counter)
+         0: data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ;
+         2: data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ;
+      endcase
+   end
+
+
 
    always @(posedge c4)
    if (f0 == 0) begin 
       counter <= 0;
-
    end else
    begin
       if (counter_f0 == 0) begin
@@ -101,10 +107,6 @@ always @(clk50)
          60: reg_in[counter_f0 * 32 + counter/2] <= data_from_dt;
          62:   begin
                   reg_in[counter_f0 * 32 + counter/2] <= data_from_dt;
-
-                  // if (counter_f0 == 0) begin
-                  // cpu_int = 0;
-                  // end
                   counter_f0 <= counter_f0 + 1;
                   test_120 <= 0;
                   if (counter_f0 == num_byte_in_buffer - 1) begin
@@ -112,11 +114,6 @@ always @(clk50)
                      counter_f0 <= 0;
                   end
                end
-         // 511: begin
-         // test_120 <= 1;
-         // counter <= 0;
-         // end
-         // default:  test_120 <= 0;
       endcase
       counter <= counter + 1;
    end
