@@ -90,6 +90,8 @@ always @(clk50)
          58: test_120 <= 0;
          60: test_120 <= 1;
          62:   begin
+                  test_120 <= 0;
+                  
                   if (counter_f0 == 0) begin
                   cpu_int = 0;
                   end
