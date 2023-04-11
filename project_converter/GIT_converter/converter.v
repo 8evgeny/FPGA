@@ -91,13 +91,13 @@ always @(clk50)
          60: test_120 <= 1;
          62:   begin
                   test_120 <= 0;
-                  
+
                   if (counter_f0 == 0) begin
                   cpu_int = 0;
                   end
                   counter_f0 <= counter_f0 + 1;
                   test_120 <= 0;
-                  if (counter_f0 == 7) begin
+                  if (counter_f0 == 11) begin
                   cpu_int = 1;
                   counter_f0 <= 0;
                   end
