@@ -13,12 +13,12 @@ module converter (
    output reg test_120,
    output reg data_to_dt,
    output reg data_to_stm,
-   output reg cpu_int
+   output reg cpu_int = 0
 
    );
 reg [9:0] counter = 0;
 reg [5:0] data = 0;
-
+reg [4:0] counter_f0 = 0;
 //    reg [19:0] count_20 = 0;
 // always @(posedge clk50) begin
 //    count_20 <= count_20 + 1;
@@ -89,7 +89,17 @@ always @(clk50)
          56: test_120 <= 1;
          58: test_120 <= 0;
          60: test_120 <= 1;
-         62: test_120 <= 0;
+         62:   begin
+                  if (counter_f0 == 0) begin
+                  cpu_int = 0;
+                  end
+                  counter_f0 <= counter_f0 + 1;
+                  test_120 <= 0;
+                  if (counter_f0 == 7) begin
+                  cpu_int = 1;
+                  counter_f0 <= 0;
+                  end
+               end
          // 511: begin
          // test_120 <= 1;
          // counter <= 0;
@@ -98,48 +108,6 @@ always @(clk50)
       endcase
       counter <= counter + 1;
    end
-
-   // always @(posedge c4)
-   //    begin
-   //       counter <= counter + 1;
-   //       case (counter)
-   //          1: data <= 1;
-   //          3: data <= 3;
-   //          5: data <= 5;
-   //          // default:  data <= 0;
-   //       endcase
-   //    end
-
-   // always @(c4)
-   //    if (f0 == 0) begin 
-   //    counter <= 0;
-   //    end else
-   //    begin
-   //       counter <= counter + 1;
-   //       case (counter)
-   //          1: test_120 <= 1;
-   //          2: test_120 <= 0;
-   //          3: test_120 <= 1;
-   //          4: test_120 <= 0;
-   //          5: test_120 <= 1;
-   //          6: test_120 <= 0;
-   //          7: test_120 <= 1;
-   //          8: test_120 <= 0;
-   //          9: test_120 <= 1;
-   //          10: test_120 <= 0;
-   //          11: test_120 <= 1;
-   //          12: test_120 <= 0;
-   //          13: test_120 <= 1;
-   //          14: test_120 <= 0;
-   //          15: test_120 <= 1;
-   //          16: test_120 <= 0;
-   //          17: test_120 <= 1;
-   //          18: test_120 <= 0;
-   //          19: test_120 <= 1;
-   //          20: test_120 <= 0;
-   //          default:  data <= 0;
-   //       endcase
-   //    end
 
 
 endmodule
