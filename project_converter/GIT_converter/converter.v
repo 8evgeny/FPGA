@@ -19,6 +19,7 @@ module converter (
 reg [9:0] counter = 0;
 reg [5:0] data = 0;
 reg [4:0] counter_f0 = 0;
+parameter num_byte_in_buffer = 16;
 //    reg [19:0] count_20 = 0;
 // always @(posedge clk50) begin
 //    count_20 <= count_20 + 1;
@@ -37,7 +38,7 @@ always @(clk50)
    end
 
    integer i;
-   reg [383:0] reg_in = 0;
+   reg [(num_byte_in_buffer * 8 - 1):0] reg_in = 0;
    reg tmp = 0;
    always @(negedge clk_from_stm)
    begin
@@ -47,7 +48,7 @@ always @(clk50)
 
    always @(posedge clk_from_stm)
    begin
-   data_to_stm <= reg_in[383];
+   data_to_stm <= reg_in[(num_byte_in_buffer * 8 - 1)];
    end
 
 
@@ -97,7 +98,7 @@ always @(clk50)
                   end
                   counter_f0 <= counter_f0 + 1;
                   test_120 <= 0;
-                  if (counter_f0 == 11) begin
+                  if (counter_f0 == num_byte_in_buffer - 1) begin
                   cpu_int = 1;
                   counter_f0 <= 0;
                   end
