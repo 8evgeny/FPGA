@@ -39,7 +39,7 @@ always @(clk50)
 
    integer i;
    reg [(num_byte_in_buffer * 8 - 1):0] reg_in = 0;
-   reg tmp = 0;
+
    always @(negedge clk_from_stm)
    begin
       reg_in <= reg_in << 1;
@@ -55,9 +55,12 @@ always @(clk50)
    always @(posedge c4)
    if (f0 == 0) begin 
       counter <= 0;
+
    end else
    begin
-      
+      if (counter_f0 == 0) begin
+      cpu_int = 0;
+      end   
       case (counter)
          0: test_120 <= 1;
          2: test_120 <= 0;
@@ -93,14 +96,14 @@ always @(clk50)
          62:   begin
                   test_120 <= 0;
 
-                  if (counter_f0 == 0) begin
-                  cpu_int = 0;
-                  end
+                  // if (counter_f0 == 0) begin
+                  // cpu_int = 0;
+                  // end
                   counter_f0 <= counter_f0 + 1;
                   test_120 <= 0;
                   if (counter_f0 == num_byte_in_buffer - 1) begin
-                  cpu_int = 1;
-                  counter_f0 <= 0;
+                     cpu_int = 1;
+                     counter_f0 <= 0;
                   end
                end
          // 511: begin
