@@ -50,9 +50,9 @@ always @(clk50)
    always @(posedge clk_from_stm)
    begin
 
-   data_to_stm <= reg_in[(num_byte_in_buffer * 8 - 1 - i)];
+   data_to_stm <= reg_in[(i)];
    i = i + 1;
-   if (num_byte_in_buffer * 8 - 1 < i ) i <= 0;
+   if ( i == num_byte_in_buffer * 8 ) i = 0;
 
    end
 
