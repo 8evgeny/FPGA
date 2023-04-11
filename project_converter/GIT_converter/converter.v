@@ -37,19 +37,23 @@ always @(clk50)
    clk2 = clk50;
    end
 
-   integer i;
+   integer i = 0;
    reg [(num_byte_in_buffer * 8 - 1):0] reg_in = 0;
    reg [(num_byte_in_buffer * 8 - 1):0] reg_in2 = 0;
 
    always @(negedge clk_from_stm)
    begin
-      reg_in2 <= reg_in2 << 1;
-      reg_in2[0] <= data_from_stm;
+      // reg_in2 <= reg_in2 << 1;
+      // reg_in2[0] <= data_from_stm;
    end
 
    always @(posedge clk_from_stm)
    begin
-   data_to_stm <= reg_in2[(num_byte_in_buffer * 8 - 1)];
+
+   data_to_stm <= reg_in[(num_byte_in_buffer * 8 - 1 - i)];
+   i = i + 1;
+   if (num_byte_in_buffer * 8 - 1 < i ) i <= 0;
+
    end
 
 
@@ -60,7 +64,7 @@ always @(clk50)
    end else
    begin
       if (counter_f0 == 0) begin
-      cpu_int = 0;
+      cpu_int <= 0;
       end   
 
       case (counter)
@@ -104,7 +108,7 @@ always @(clk50)
                   counter_f0 <= counter_f0 + 1;
                   test_120 <= 0;
                   if (counter_f0 == num_byte_in_buffer - 1) begin
-                     cpu_int = 1;
+                     cpu_int <= 1;
                      counter_f0 <= 0;
                   end
                end
