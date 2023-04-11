@@ -31,10 +31,10 @@ reg [5:0] data = 0;
 //    end
 // end
 
-// always @(clk50)
-//    begin
-//    clk2 = clk50;
-//    end
+always @(clk50)
+   begin
+   clk2 = clk50;
+   end
 
    integer i;
    reg [383:0] reg_in = 0;
