@@ -45,12 +45,13 @@ always @(clk50)
 
    always @(negedge clk_from_stm)
    begin
-   reg_out[(i)] <= data_from_stm;
+   // reg_out[(i)] <= data_from_stm;
    end
 
    always @(posedge clk_from_stm)
    begin
       data_to_stm <= reg_in[(i)];
+      reg_out[(i-1)] <= data_from_stm;
       i = i + 1;
       if ( i == num_byte_in_buffer * 4 * 8 ) begin
       i = 0;
