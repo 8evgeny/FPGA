@@ -40,8 +40,8 @@ always @(clk50)
    end
 
    integer i = 0;
-   reg [(num_byte_in_buffer * 8 - 1):0] reg_in = 0;
-   reg [(num_byte_in_buffer * 8 - 1):0] reg_out = 0;
+   reg [(num_byte_in_buffer * 4 * 8 - 1):0] reg_in = 0;
+   reg [(num_byte_in_buffer * 4 * 8 - 1):0] reg_out = 0;
 
    always @(negedge clk_from_stm)
    begin
@@ -50,10 +50,11 @@ always @(clk50)
 
    always @(posedge clk_from_stm)
    begin
-   data_to_stm <= reg_in[(i)];
-   i = i + 1;
-   if ( i == num_byte_in_buffer * 4 * 8 ) i = 0;
-
+      data_to_stm <= reg_in[(i)];
+      i = i + 1;
+      if ( i == num_byte_in_buffer * 4 * 8 ) begin
+      i = 0;
+      end
    end
 
    // always @(negedge c4)
@@ -76,30 +77,33 @@ always @(clk50)
       case (counter)
          0: begin test_120 <=1; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end 
          2: begin test_120 <=0; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         4: begin test_120 <=1; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         6: begin test_120 <=0; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         8: begin test_120 <=1; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         10: begin test_120 <=0; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         12: begin test_120 <=1; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         14: begin test_120 <=0; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         16: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         18: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         4: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         6: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         8: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         10: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         12: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         14: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         
+         16: begin test_120 <=1;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         18: begin test_120 <=0;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          20: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          22: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          24: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          26: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          28: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          30: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         32: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         34: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         
+         32: begin test_120 <=1;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         34: begin test_120 <=0;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          36: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          38: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          40: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          42: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          44: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          46: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         48: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
-         50: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         
+         48: begin test_120 <=1;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         50: begin test_120 <=0;reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          52: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          54: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          56: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
@@ -110,13 +114,15 @@ always @(clk50)
                   data_to_dt <= reg_out[counter_f0 * 32 + counter/2]; 
 
                   counter_f0 <= counter_f0 + 1;
-                  if (counter_f0 == num_byte_in_buffer - 1) begin
+                  if (counter_f0 == num_byte_in_buffer -1 ) begin
                         cpu_int <= 1;
                         counter_f0 <= 0;
                   end
+
                end
       endcase
       counter <= counter + 1;
+      
    end
 
 
