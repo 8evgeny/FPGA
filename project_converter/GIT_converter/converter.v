@@ -6,7 +6,7 @@ module converter (
    input wire data_from_dt,
    input wire data_from_stm,
    input wire clk_from_stm,
-   input wire reset_out_rg,
+   input wire reset_i,
    input wire reset_in_rg,
    input clk50,
    output reg clk2,
@@ -51,11 +51,11 @@ always @(clk50)
    always @(posedge clk_from_stm)
    begin
       data_to_stm <= reg_in[(i)];
-      reg_out[(i-1)] <= data_from_stm;
+      // reg_out[(i-1)] <= data_from_stm;
+      reg_out[(i)] <= data_from_stm;
       i = i + 1;
-      if ( i == num_byte_in_buffer * 4 * 8 ) begin
-      i = 0;
-      end
+      // if ( i == num_byte_in_buffer * 4 * 8 ) begin
+      if ( reset_i == 1 ) i = 0;
    end
 
    // always @(negedge c4)
@@ -74,10 +74,11 @@ always @(clk50)
       if (counter_f0 == 0) begin
       cpu_int <= 0;
       end   
-
+      if (i == 0) test_120 <= 1;
+      if (i != 0) test_120 <= 0;
       case (counter)
-         0: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end 
-         2: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
+         0: begin test_120 <= 1; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end 
+         2: begin test_120 <= 0; reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          4: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          6: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
          8: begin reg_in[counter_f0 * 32 + counter/2] <= data_from_dt; data_to_dt <= reg_out[counter_f0 * 32 + counter/2] ; end
